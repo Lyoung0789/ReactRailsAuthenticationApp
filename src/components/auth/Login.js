@@ -28,12 +28,11 @@ export default class Login extends Component {
         }, 
         {withCredentials: true}
         ).then(response => {
-            console.log("res from  login", response)
-            // if(response.data.status === "created"){
-            //     console.log(this.props)
-            //     // debugger
-            //     this.props.handleSucessfulAuth(response.data)
-            // }
+            if(response.data.logged_in){
+                console.log(this.props)
+                // debugger
+                this.props.handleSucessfulAuth(response.data)
+            }
         }).catch(error => {
             console.log("login errors", error)
         })
